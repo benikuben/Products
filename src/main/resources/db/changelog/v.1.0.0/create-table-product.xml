@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.6.xsd">
+
+    <changeSet id="create-table-product" author="Veronika Kulieva">
+        <createTable tableName="product">
+            <column name="id" type="uuid">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="name" type="varchar(50)"/>
+            <column name="product_type" type="varchar(50)"/>
+            <column name="start_date" type="date"/>
+            <column name="end_date" type="date"/>
+            <column name="description" type="text"/>
+            <column name="tariff" type="uuid"/>
+            <column name="author" type="uuid"/>
+            <column name="version" type="integer"/>
+        </createTable>
+
+        <addForeignKeyConstraint baseTableName="product" baseColumnNames="tariff"
+                                 constraintName="product_tariff_tariff_id"
+                                 referencedTableName="tariff" referencedColumnNames="id" onDelete="SET NULL"/>
+
+        <rollback>
+            <dropTable tableName="product"/>
+        </rollback>
+    </changeSet>
+
+</databaseChangeLog>
