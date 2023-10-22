@@ -109,6 +109,8 @@ public class ProductsControllerServiceImpl implements ProductsControllerService 
 
     @Override
     public List<ProductResponse> getVersionForCertainPeriod(UUID id, LocalDate startDate, LocalDate endDate) {
+        productService.findById(id)
+                .orElseThrow(() -> new NotFoundException(String.format("Product with id %s not found", id)));
         List<Product> products = auditService.getVersionForCertainPeriod(id, startDate, endDate);
         return products.stream().map(productMapper::productToProductDto).toList();
 

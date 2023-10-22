@@ -4,13 +4,19 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDate;
 import java.util.UUID;
 
 @Data
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class ProductRequest {
     @Pattern(regexp = "^([A-Za-z ]{2,50})$", message = "Name must contain from 2 to 50 Latin letters")
     @Schema(
