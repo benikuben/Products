@@ -20,7 +20,6 @@ import ru.neoflex.products.models.Tariff;
 import java.util.HashMap;
 import java.util.Map;
 
-
 @Configuration
 @EnableKafka
 public class KafkaConfig {

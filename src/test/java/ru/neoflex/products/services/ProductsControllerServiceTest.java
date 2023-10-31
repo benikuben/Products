@@ -1,4 +1,4 @@
-package ru.neoflex.products.services.impl;
+package ru.neoflex.products.services;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -10,8 +10,7 @@ import ru.neoflex.products.exceptions.NotFoundException;
 import ru.neoflex.products.exceptions.ProductsException;
 import ru.neoflex.products.models.Product;
 import ru.neoflex.products.models.Tariff;
-import ru.neoflex.products.services.ProductService;
-import ru.neoflex.products.services.TariffService;
+import ru.neoflex.products.services.impl.ProductsControllerServiceImpl;
 import ru.neoflex.products.util.mappers.ProductMapper;
 
 import java.time.LocalDate;

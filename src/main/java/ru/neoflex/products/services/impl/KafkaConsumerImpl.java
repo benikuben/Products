@@ -30,9 +30,6 @@ public class KafkaConsumerImpl implements KafkaConsumer {
     public void consumeMessage(Tariff tariff, @Header(KafkaHeaders.RECEIVED_TOPIC) String topic) {
         log.info("Message consumed {}", tariff);
 
-        productService.updateByTariff(tariff.getId());
-        tariffService.update(tariff.getId(), tariff);
-
         switch (topic) {
             case CREATE_TARIFF -> tariffService.save(tariff);
             case UPDATE_TARIFF -> {
@@ -41,7 +38,7 @@ public class KafkaConsumerImpl implements KafkaConsumer {
             }
             case DELETE_TARIFF -> {
                 tariffService.delete(tariff);
-//                productService.updateByTariff(tariff.getId());
+                productService.updateByTariff(tariff.getId());
             }
             default -> log.warn("{} - unhandled topic", topic);
         }

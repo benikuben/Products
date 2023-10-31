@@ -28,7 +28,7 @@ public class ProductRequest {
     @NotNull(message = "Product type must not be null")
     @Schema(
             description = "product type",
-            name = "product type",
+            name = "productType",
             example = "card"
     )
     private ProductType productType;
@@ -36,7 +36,7 @@ public class ProductRequest {
     @NotNull(message = "Start date must not be null")
     @Schema(
             description = "start date",
-            name = "start date",
+            name = "startDate",
             example = "2000-01-01"
     )
     private LocalDate startDate;
@@ -44,7 +44,7 @@ public class ProductRequest {
     @NotNull(message = "End date must not be null")
     @Schema(
             description = "end date",
-            name = "end date",
+            name = "endDate",
             example = "2001-01-01"
     )
     private LocalDate endDate;
@@ -59,7 +59,7 @@ public class ProductRequest {
     @NotNull(message = "Tariff must not be null")
     @Schema(
             description = "tariff name",
-            name = "tariff name",
+            name = "tariffName",
             example = "credit card tariff"
     )
     private String tariffName;

@@ -21,13 +21,13 @@ public class TariffResponse {
     private String name;
     @Schema(
             description = "start date",
-            name = "start date",
+            name = "startDate",
             example = "2000-01-01"
     )
     private LocalDate startDate;
     @Schema(
             description = "end date",
-            name = "end date",
+            name = "endDate",
             example = "2001-01-01"
     )
     private LocalDate endDate;
